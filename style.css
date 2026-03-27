@@ -895,10 +895,10 @@ section::before {
     }
 }
 
-/* Schedule Section */
+/* Schedule Section - VERTICAL TIMELINE */
 .timeline {
     position: relative;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     width: 100%;
     padding: 0 20px;
@@ -911,30 +911,21 @@ section::before {
     background: var(--primary-gradient);
     top: 0;
     bottom: 0;
-    left: 50%;
-    margin-left: -2px;
+    left: 30px;
     border-radius: 2px;
 }
 
 .timeline-item {
-    padding: 20px 40px;
+    padding: 20px 20px 20px 80px;
     position: relative;
-    width: 50%;
+    width: 100%;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 15px;
     margin-bottom: 2rem;
     transition: var(--transition);
-}
-
-.timeline-item:nth-child(odd) {
-    left: 0;
-    transform: translateX(-50%);
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-    transform: translateX(50%);
+    margin-left: 0;
+    transform: none;
 }
 
 .timeline-item::after {
@@ -945,16 +936,9 @@ section::before {
     background: var(--primary-color);
     border: 4px solid var(--bg-color);
     top: 30px;
+    left: 15px;
     border-radius: 50%;
     z-index: 1;
-}
-
-.timeline-item:nth-child(odd)::after {
-    right: -12px;
-}
-
-.timeline-item:nth-child(even)::after {
-    left: -12px;
 }
 
 .timeline-item:hover {
@@ -1394,26 +1378,27 @@ footer p span {
         font-size: 1rem;
     }
     
-    /* Timeline - MOBILE FIX: Single column, left line */
+    /* Timeline - VERTICAL: Single column, left line */
     .timeline {
         padding: 0 16px;
     }
-    
+
     .timeline::after {
-        left: 20px; /* Move line to left side */
+        left: 20px;
         width: 3px;
     }
-    
+
     .timeline-item {
         width: 100%;
         padding: 1.6rem 1.8rem 1.6rem 3.8rem;
         margin: 0 0 1.2rem 0;
         border-radius: 16px;
-        left: 0; /* Remove alternating positioning */
+        left: 0;
+        transform: none;
     }
-    
+
     .timeline-item::before {
-        left: 10px; /* Move dots to left */
+        left: 10px;
         right: auto;
         width: 18px;
         height: 18px;
@@ -1636,39 +1621,24 @@ footer p span {
         font-size: 2.2rem;
     }
     
-    /* Timeline - semi-alternating */
+    /* Timeline - VERTICAL: Single column */
     .timeline {
         max-width: 900px;
     }
-    
+
     .timeline::after {
-        left: 38%;
+        left: 30px;
     }
-    
+
     .timeline-item {
-        width: 38%;
-        padding: 2rem 2.5rem;
+        width: 100%;
+        padding: 2rem 2rem 2rem 80px;
+        margin-left: 0;
+        transform: none;
     }
-    
-    .timeline-item:nth-child(odd) {
-        left: 0;
-    }
-    
-    .timeline-item:nth-child(even) {
-        left: 60%;
-    }
-    
+
     .timeline-item::before {
-        left: auto;
-        right: -10px;
-    }
-    
-    .timeline-item:nth-child(odd)::before {
-        right: -10px;
-    }
-    
-    .timeline-item:nth-child(even)::before {
-        left: -10px;
+        left: 15px;
     }
     
     .timeline-content {
@@ -1752,39 +1722,24 @@ footer p span {
         font-size: 2.5rem;
     }
     
-    /* Timeline - full alternating */
+    /* Timeline - VERTICAL: Single column */
     .timeline {
         max-width: 800px;
     }
-    
+
     .timeline::after {
-        left: 50%;
+        left: 30px;
     }
-    
+
     .timeline-item {
-        width: 50%;
-        padding: 2rem 3rem;
+        width: 100%;
+        padding: 2rem 2rem 2rem 80px;
+        margin-left: 0;
+        transform: none;
     }
-    
-    .timeline-item:nth-child(odd) {
-        left: 0;
-    }
-    
-    .timeline-item:nth-child(even) {
-        left: 50%;
-    }
-    
+
     .timeline-item::before {
-        left: auto;
-        right: -12px;
-    }
-    
-    .timeline-item:nth-child(odd)::before {
-        right: -12px;
-    }
-    
-    .timeline-item:nth-child(even)::before {
-        left: -12px;
+        left: 15px;
     }
     
     .timeline-content {
@@ -1855,15 +1810,15 @@ footer p span {
         font-size: 2.8rem;
     }
     
-    /* Timeline */
+    /* Timeline - VERTICAL: Single column */
     .timeline-item {
-        padding: 2.5rem 4rem;
+        padding: 2.5rem 2.5rem 2.5rem 80px;
     }
-    
+
     .timeline-content h3 {
         font-size: 1.6rem;
     }
-    
+
     .timeline-content p {
         font-size: 1.15rem;
     }
