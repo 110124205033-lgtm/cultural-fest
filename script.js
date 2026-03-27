@@ -41,8 +41,8 @@ const eventsData = {
         ],
         icon: '♻️'
     },
-    'kutty-story': {
-        title: 'Kutty Skit',
+    'connection': {
+        title: 'Connection',
         description: 'A short and impactful skit performance that delivers a message creatively.',
         rules: [
             'Team event (3–6 members)',
@@ -51,7 +51,7 @@ const eventsData = {
             'Props allowed but minimal setup time',
             'Judging based on acting, message, and coordination'
         ],
-        icon: '📖'
+        icon: '🤝'
     },
     'illogical-marketing': {
         title: 'Illogical Reasoning',
@@ -88,16 +88,16 @@ const eventsData = {
         ],
         icon: '🚢'
     },
-    'sudoku': {
-        title: 'Sudoku',
-        description: 'Test your logical thinking by solving Sudoku puzzles.',
+    'start-music': {
+        title: 'Start Music',
+        description: 'Test your logical thinking by solving music puzzles.',
         rules: [
             'Individual participation',
             'Time-based competition',
             'No electronic devices allowed',
             'First correct completion wins'
         ],
-        icon: '🔢'
+        icon: '🎶'
     },
     'rubiks-cube': {
         title: 'Rubik\'s Cube',
@@ -111,8 +111,8 @@ const eventsData = {
         icon: '🧊'
     },
     'mono-acting': {
-        title: 'Mono Acting / Drama',
-        description: 'Perform a powerful solo act showcasing emotions and storytelling.',
+        title: 'Mono Acting / Mime / Drama',
+        description: 'Perform a powerful solo act showcasing emotions and storytelling through acting, mime, or drama.',
         rules: [
             'Individual event',
             'Time limit: 3–5 minutes',
