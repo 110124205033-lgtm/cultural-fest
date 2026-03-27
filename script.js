@@ -192,6 +192,10 @@ const eventsData = {
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure modal is hidden on page load
+    eventModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+
     // Hide loader after 2 seconds
     setTimeout(() => {
         loader.style.opacity = '0';
@@ -209,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+
     // Intersection Observer for fade-in animations
     const observerOptions = {
         threshold: 0.1,
@@ -220,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-                
+
                 // Add staggered animation delay
                 const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
                 entry.target.style.setProperty('--i', index);
@@ -278,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Registration form handling
     registrationForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const formData = new FormData(registrationForm);
         const data = {
             name: formData.get('name'),
@@ -342,11 +347,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const scrolled = window.pageYOffset;
                 const hero = document.querySelector('.hero');
                 const particles = document.querySelectorAll('.particle');
-                
+
                 if (hero) {
                     hero.style.transform = `translateY(${scrolled * 0.25}px)`;
                 }
-                
+
                 particles.forEach((particle, index) => {
                     const speed = 0.08 + (index * 0.03);
                     particle.style.transform = `translateY(-${scrolled * speed}px)`;
@@ -358,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const glow = Math.min(12, scrolled / 15);
                     heroText.style.textShadow = `0 0 ${glow}px rgba(212, 175, 55, 0.8), 0 0 ${glow*1.5}px rgba(212, 175, 55, 0.4)`;
                 }
-                
+
                 ticking = false;
             });
             ticking = true;
@@ -382,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
             confetti.style.zIndex = '9999';
             confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
             document.body.appendChild(confetti);
-            
+
             setTimeout(() => {
                 confetti.remove();
             }, 5000);
@@ -400,7 +405,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    // Google Form Integration
+// Google Form Integration with modal close
     document.getElementById("registration-form").addEventListener("submit", function(e){
         e.preventDefault();
 
@@ -419,11 +424,20 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(res => res.text())
         .then(() => {
-            alert("Registered Successfully!");
+            // Close modal if open and scroll to success
+            if (window.currentEventId) {
+                closeEventModal();
+            }
+            createConfetti();
+            successMessage.style.display = 'flex';
             form.reset();
+            // Scroll to success message
+            setTimeout(() => {
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 500);
         })
         .catch(() => {
-            alert("Error!");
+            alert("Error! Please try again.");
         });
     });
 
@@ -450,6 +464,9 @@ function openEventModal(eventId) {
         modalRules.innerHTML = event.rules.map(rule => `<li>${rule}</li>`).join('');
     }
 
+    // Track current event for register
+    window.currentEventId = eventId;
+
     eventModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
@@ -457,4 +474,12 @@ function openEventModal(eventId) {
 function closeEventModal() {
     eventModal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    window.currentEventId = null;
+}
+
+function scrollToRegister() {
+    document.getElementById('register').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+    });
 }
