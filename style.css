@@ -900,17 +900,6 @@ section::before {
     padding: 0 20px;
 }
 
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background: var(--primary-gradient);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
-    border-radius: 2px;
-}
 
 .timeline-item {
     padding: 20px 40px;
@@ -2272,7 +2261,6 @@ footer p span {
 
     /* ===== MODAL FIX (MOST IMPORTANT) ===== */
     .event-modal {
-        padding: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2314,8 +2302,13 @@ footer p span {
     }
 
     /* ===== MODAL CONTENT FIX ===== */
+    .modal-image {
+        display: none;
+    }
+
     .modal-info {
         padding: 1rem;
+        flex: 1 1 100%;
     }
 
     .modal-info h2 {
