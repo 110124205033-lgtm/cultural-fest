@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         formData.set("event", selected.join(", "));
 
-        fetch("https://script.google.com/macros/s/AKfycbyXCiEUl_soBviriSpGKlDtrYtBesotcPoeHUlFlWFQrPMeYFyUnw_fL4zPHv9CztQq/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbzdLqm-x0HJHdEUCtvTYm-8iRcnvZaZ0jqYKVUFKyA-8LOjx5xukaBtHKs042k3Qi2I/exec", {
             method: "POST",
             body: formData
         })
